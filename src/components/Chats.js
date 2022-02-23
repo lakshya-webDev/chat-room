@@ -24,7 +24,7 @@ export default function Chats() {
     const data = await response.blob();
     return new File([data], "test.jpg", { type: 'image/jpeg' });
 
-    console.log(response,'response',data,'data')
+    // console.log(response,'response',data,'data')
   }
 
   useEffect(() => {
