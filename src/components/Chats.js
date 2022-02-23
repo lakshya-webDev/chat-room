@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react"
 import axios from 'axios';
-import { useHistory } from "react-router-dom";
+import { useHistory ,Link } from "react-router-dom";
 import { ChatEngine } from 'react-chat-engine';
 import { useAuth } from "../contexts/AuthContext"
 import { auth } from "../firebase";
@@ -81,15 +81,15 @@ export default function Chats() {
               <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
-              <a className="navbar-brand text-white">Chat Room</a>
+              <Link to="#" className="navbar-brand text-white">Chat Room</Link>
               <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li className="nav-item profile-avtaar dropdown">
                   <a className="nav-link dropbtn text-white"><img src={user.photoURL} className="avtaar-img"/> {user.displayName}</a>
                       <div className="dropdown-content">
-                        <a>{user.displayName}</a>
-                        <a  className="profile-email">{user.email}</a>
-                        <a  onClick={handleLogout}>Logout</a>
+                        <Link>{user.displayName}</Link>
+                        <Link className="profile-email">{user.email}</Link>
+                        <Link onClick={handleLogout}>Logout</Link>
                       </div>
                   </li>
                 </ul>
