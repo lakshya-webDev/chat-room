@@ -12,8 +12,8 @@ export default function Chats() {
   const [ loading, setLoading ] = useState(true);
   const { user } = useAuth();
   const history = useHistory();
-  const REACT_APP_CHAT_ENGINE_ID = process.env.REACT_APP_CHAT_ENGINE_ID;
-  const REACT_APP_CHAT_ENGINE_KEY =process.env.REACT_APP_CHAT_ENGINE_KEY;
+  const REACT_APP_CHAT_ENGINE_ID = "fcf5ce20-08cb-4247-985b-95017934d11c";
+  const REACT_APP_CHAT_ENGINE_KEY ="409df5d1-ab81-4ea1-9ed9-f02963589c2a";
 
   async function handleLogout() {
     await auth.signOut()
