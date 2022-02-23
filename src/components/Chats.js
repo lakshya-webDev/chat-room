@@ -12,8 +12,8 @@ export default function Chats() {
   const [ loading, setLoading ] = useState(true);
   const { user } = useAuth();
   const history = useHistory();
-  // const REACT_APP_CHAT_ENGINE_ID ="fcf5ce20-08cb-4247-985b-95017934d11c";
-  // const REACT_APP_CHAT_ENGINE_KEY ="409df5d1-ab81-4ea1-9ed9-f02963589c2a";
+  const REACT_APP_CHAT_ENGINE_ID = process.env.REACT_APP_CHAT_ENGINE_ID;
+  const REACT_APP_CHAT_ENGINE_KEY =process.env.REACT_APP_CHAT_ENGINE_KEY;
 
   async function handleLogout() {
     await auth.signOut()
@@ -40,7 +40,7 @@ export default function Chats() {
       axios.get(
         'https://api.chatengine.io/users/me/',
         { headers: { 
-          "project-id":process.env.REACT_APP_CHAT_ENGINE_ID,
+          "project-id":REACT_APP_CHAT_ENGINE_ID,
           "user-name": user.email,
           "user-secret": user.uid
         }}
@@ -59,7 +59,7 @@ export default function Chats() {
           formdata.append('avatar', avatar, avatar.name)
           axios.post('https://api.chatengine.io/users/',formdata,{
                headers: { 
-                 "private-key":process.env.REACT_APP_CHAT_ENGINE_KEY 
+                 "private-key":REACT_APP_CHAT_ENGINE_KEY 
                 }
             }
           )
@@ -97,7 +97,7 @@ export default function Chats() {
           </nav>
       <ChatEngine 
         height='calc(100vh - 66px)'
-        projectID= {process.env.REACT_APP_CHAT_ENGINE_ID}
+        projectID= {REACT_APP_CHAT_ENGINE_ID}
         userName={user.email}
         userSecret={user.uid}
       />
