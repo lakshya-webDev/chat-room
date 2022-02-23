@@ -12,14 +12,14 @@ export default function Login() {
                   <span className="login100-form-title p-b-55">
                   Login To Chatting Zone
                   </span>
-                  <button className="btn-face m-b-10" onClick={() => auth.signInWithRedirect(new firebase.auth.FacebookAuthProvider()) }>
+                  <a href="#0" className="btn-face m-b-10" onClick={() => auth.signInWithRedirect(new firebase.auth.FacebookAuthProvider()) }>
                   <img src={FacebokIcon} alt="Facebook" height={20} width={20} className="img-fluid me-2" />
                   Facebook
-                  </button>
-                  <button className="btn-google m-b-10" onClick={() => auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())}>
+                  </a>
+                  <a href="#0" className="btn-google m-b-10" onClick={() => auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())}>
                   <img src={GoogleIcon} alt="GOOGLE" className="img-fluid me-2"/>
                   Google
-                  </button>
+                  </a>
               </form>
             </div>
         </div>
