@@ -85,7 +85,7 @@ export default function Chats() {
               <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li className="nav-item profile-avtaar dropdown">
-                  <a className="nav-link dropbtn text-white"><img src={user.photoURL} className="avtaar-img"/> {user.displayName}</a>
+                  <Link className="nav-link dropbtn text-white"><img src={user.photoURL} className="avtaar-img"/> {user.displayName}</Link>
                       <div className="dropdown-content">
                         <Link>{user.displayName}</Link>
                         <Link className="profile-email">{user.email}</Link>
