@@ -81,15 +81,15 @@ export default function Chats() {
               <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
-              <a className="navbar-brand text-white" href="#">Chat Room</a>
+              <a className="navbar-brand text-white">Chat Room</a>
               <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li className="nav-item profile-avtaar dropdown">
                   <a className="nav-link dropbtn text-white"><img src={user.photoURL} className="avtaar-img"/> {user.displayName}</a>
                       <div className="dropdown-content">
-                        <a href="#">{user.displayName}</a>
-                        <a href="#" className="profile-email">{user.email}</a>
-                        <a href="#" onClick={handleLogout}>Logout</a>
+                        <a>{user.displayName}</a>
+                        <a  className="profile-email">{user.email}</a>
+                        <a  onClick={handleLogout}>Logout</a>
                       </div>
                   </li>
                 </ul>
