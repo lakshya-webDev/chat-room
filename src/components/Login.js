@@ -16,7 +16,7 @@ export default function Login() {
                   <img src={FacebokIcon} alt="Facebook" height={20} width={20} className="img-fluid me-2" />
                   Facebook
                   </button>
-                  <button href="#" className="btn-google m-b-10" onClick={() => auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())}>
+                  <button className="btn-google m-b-10" onClick={() => auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())}>
                   <img src={GoogleIcon} alt="GOOGLE" className="img-fluid me-2"/>
                   Google
                   </button>
