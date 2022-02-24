@@ -4,9 +4,6 @@ import { useHistory ,Link } from "react-router-dom";
 import { ChatEngine } from 'react-chat-engine';
 import { useAuth } from "../contexts/AuthContext"
 import { auth } from "../firebase";
-
-
-
 export default function Chats() {
   const didMountRef = useRef(false);
   const [ loading, setLoading ] = useState(true);
@@ -40,7 +37,7 @@ export default function Chats() {
       axios.get(
         'https://api.chatengine.io/users/me/',
         { headers: { 
-          "project-id":REACT_APP_CHAT_ENGINE_ID,
+          "project-ID":REACT_APP_CHAT_ENGINE_ID,
           "user-name": user.email,
           "user-secret": user.uid
         }}
@@ -53,13 +50,12 @@ export default function Chats() {
         formdata.append('email', user.email)
         formdata.append('username', user.email)
         formdata.append('secret', user.uid)
-
         getFile(user.photoURL)
         .then(avatar => {
           formdata.append('avatar', avatar, avatar.name)
           axios.post('https://api.chatengine.io/users/',formdata,{
                headers: { 
-                 "PRIVATE-KEY":REACT_APP_CHAT_ENGINE_KEY 
+                 "private-key":REACT_APP_CHAT_ENGINE_KEY 
                 }
             }
           )
