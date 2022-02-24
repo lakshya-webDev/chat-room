@@ -59,7 +59,7 @@ export default function Chats() {
           formdata.append('avatar', avatar, avatar.name)
           axios.post('https://api.chatengine.io/users/',formdata,{
                headers: { 
-                 "private-key":REACT_APP_CHAT_ENGINE_KEY 
+                 "PRIVATE-KEY":REACT_APP_CHAT_ENGINE_KEY 
                 }
             }
           )
