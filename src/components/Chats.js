@@ -10,18 +10,18 @@ export default function Chats() {
   const [ loading, setLoading ] = useState(true);
   const { user } = useAuth();
   const history = useHistory();
- 
- 
+
   async function handleLogout() {
     await auth.signOut()
     history.push("/")
   }
+
   async function getFile(url) {
     const response = await fetch(url);
     const data = await response.blob();
     return new File([data], "test.jpg", { type: 'image/jpeg' });
 
-    // console.log(response,'response',data,'data')
+  // console.log(response,'response',data,'data')
   }
   // const goProfilePage = () => {
   //   history.push("/profile");
@@ -45,7 +45,7 @@ export default function Chats() {
         },
       })
       .then(() => setLoading(false))
-      .catch(e => {
+      .catch(() =>{
         let formdata = new FormData();
         formdata.append('email', user.email);
         formdata.append('username', user.email);
@@ -53,12 +53,9 @@ export default function Chats() {
         getFile(user.photoURL).then(avatar => {
           formdata.append('avatar', avatar, avatar.name);
           axios.post('https://api.chatengine.io/users/',formdata,{
-               headers: { 
-                 "private-key":process.env.REACT_APP_CHAT_ENGINE_KEY, 
-                },
-            })
+               headers: {"private-key":process.env.REACT_APP_CHAT_ENGINE_KEY}})
           .then(() => setLoading(false))
-          .catch(e => console.log('e', e.response))
+          .catch((error)=>console.log(error))
         });
       });
 
