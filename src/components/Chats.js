@@ -56,7 +56,7 @@ const Chats = () =>{
       })
   },[user,history]);
 
-  if(!user || loading) return 'Loading...';
+  if(!user || loading) return <div/>;
   return (
     <div className='chats-page'>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
