@@ -5,32 +5,29 @@ import { ChatEngine } from 'react-chat-engine';
 import { useAuth } from "../contexts/AuthContext"
 import { auth } from "../firebase";
 
-export default function Chats() {
-    const [ loading, setLoading ] = useState(true);
-    const { user } = useAuth();
-    const history = useHistory();
+const Chats = () =>{
 
-    async function handleLogout() {
-      await auth.signOut()
-      history.push("/")
-    }
+  const history = useHistory(); 
+  const {user} = useAuth();
+  const [loading, setLoading] = useState(true);
 
-    async function getFile(url) {
+  const handleLogout = async() =>{
+      await auth.signOut();
+      history.push('/');
+  }
+
+  const getFile = async(url) =>{
       const response = await fetch(url);
       const data = await response.blob();
-      return new File([data], "test.jpg", { type: 'image/jpeg' });
-    }
-    // const goProfilePage = () => {
-    //   history.push("/profile");
-    // };
+      return new File([data], "userPhoto.jpg", {type : 'image/jpeg'});
+  }
 
-    useEffect(() => {
+  useEffect(()  => {
       if(!user){
-        history.push('/');
-        return;
-    }
-        // Get-or-Create should be in a Firebase Function
-        axios.get('https://api.chatengine.io/users/me',{
+          history.push('/');
+          return;
+      }
+      axios.get('https://api.chatengine.io/users/me',{
           headers :{
               "project-ID" : process.env.REACT_APP_CHAT_ENGINE_ID,
               "user-name" : user.email,
@@ -58,8 +55,8 @@ export default function Chats() {
           })
       })
   },[user,history]);
-  
-  if (!user || loading) return <div/>;
+
+  if(!user || loading) return 'Loading...';
   return (
     <div className='chats-page'>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -91,3 +88,4 @@ export default function Chats() {
     </div>
   );
 }
+export default Chats;
