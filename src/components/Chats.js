@@ -11,7 +11,7 @@ export default function Chats() {
   const { user } = useAuth();
   const history = useHistory();
  
- console.log(user,process.env.REACT_APP_CHAT_ENGINE_ID,process.env.REACT_APP_CHAT_ENGINE_KEY);
+ 
   async function handleLogout() {
     await auth.signOut()
     history.push("/")
