@@ -2,7 +2,7 @@
   "name": "chat-room-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://chit-chatroom-app.herokuapp.com/",
+  "homepage": "https://chatapp-room.netlify.app",
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "@testing-library/jest-dom": "^5.14.1",
