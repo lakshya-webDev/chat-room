@@ -34,10 +34,10 @@ const Chats = () =>{
               "user-secret" : user.uid
           }
       })
-      .then(() =>{
+      .then((res) =>{
+        console.log(res.data);
           setLoading(false);
-      })
-      .catch(() =>{
+      }).catch(() =>{
           let formdata = new FormData();
           formdata.append('email', user.email);
           formdata.append('username', user.email);
@@ -50,7 +50,7 @@ const Chats = () =>{
                           formdata,
                           {headers : {"private-key" : process.env.REACT_APP_CHAT_ENGINE_KEY}}
               )
-              .then(()=>setLoading(false))
+              .then((res)=>{console.log(res.data);setLoading(false)})
               .catch((error)=>console.log(error))
           })
       })
