@@ -6,61 +6,58 @@ import { useAuth } from "../contexts/AuthContext"
 import { auth } from "../firebase";
 
 export default function Chats() {
-  const didMountRef = useRef(false);
-  const [ loading, setLoading ] = useState(true);
-  const { user } = useAuth();
-  const history = useHistory();
+    const [ loading, setLoading ] = useState(true);
+    const { user } = useAuth();
+    const history = useHistory();
 
-  async function handleLogout() {
-    await auth.signOut()
-    history.push("/")
-  }
-
-  async function getFile(url) {
-    const response = await fetch(url);
-    const data = await response.blob();
-    return new File([data], "test.jpg", { type: 'image/jpeg' });
-
-  // console.log(response,'response',data,'data')
-  }
-  // const goProfilePage = () => {
-  //   history.push("/profile");
-  // };
-
-  useEffect(() => {
-    if (!didMountRef.current) {
-      didMountRef.current = true
-
-      if (!user || user === null) {
-        history.push("/")
-        return
-      }
-      // Get-or-Create should be in a Firebase Function
-      axios.get(
-        'https://api.chatengine.io/users/me/',{ 
-          headers: { 
-          "project-ID":process.env.REACT_APP_CHAT_ENGINE_ID,
-          "user-name": user.email,
-          "user-secret": user.uid
-        },
-      })
-      .then(() => setLoading(false))
-      .catch(() =>{
-        let formdata = new FormData();
-        formdata.append('email', user.email);
-        formdata.append('username', user.email);
-        formdata.append('secret', user.uid);
-        getFile(user.photoURL).then(avatar => {
-          formdata.append('avatar', avatar, avatar.name);
-          axios.post('https://api.chatengine.io/users/',formdata,{
-               headers: {"private-key":process.env.REACT_APP_CHAT_ENGINE_KEY}})
-          .then(() => setLoading(false))
-          .catch((error)=>console.log(error))
-        });
-      });
-
+    async function handleLogout() {
+      await auth.signOut()
+      history.push("/")
     }
-  }, [user, history]);
+
+    async function getFile(url) {
+      const response = await fetch(url);
+      const data = await response.blob();
+      return new File([data], "test.jpg", { type: 'image/jpeg' });
+    }
+    // const goProfilePage = () => {
+    //   history.push("/profile");
+    // };
+
+    useEffect(() => {
+      if(!user){
+        history.push('/');
+        return;
+    }
+        // Get-or-Create should be in a Firebase Function
+        axios.get('https://api.chatengine.io/users/me',{
+          headers :{
+              "project-ID" : process.env.REACT_APP_CHAT_ENGINE_ID,
+              "user-name" : user.email,
+              "user-secret" : user.uid
+          }
+      })
+      .then(() =>{
+          setLoading(false);
+      })
+      .catch(() =>{
+          let formdata = new FormData();
+          formdata.append('email', user.email);
+          formdata.append('username', user.email);
+          formdata.append('secret', user.uid);
+          getFile(user.photoURL)
+          .then((avatar) =>{
+              formdata.append('avatar', avatar, avatar.name);
+
+              axios.post('https://api.chatengine.io/users',
+                          formdata,
+                          {headers : {"private-key" : process.env.REACT_APP_CHAT_ENGINE_KEY}}
+              )
+              .then(()=>setLoading(false))
+              .catch((error)=>console.log(error))
+          })
+      })
+  },[user,history]);
   
   if (!user || loading) return <div/>;
   return (

@@ -62,10 +62,26 @@ a.profile-email{
 .anticon-paper-clip svg {
   color: #fd1d1d;
 }
-
+.ce-send-button-container{
+  top:5px;
+}
+#ce-send-message-button{
+  padding: 6px 20px !important;
+  border-radius: 12px  !important;
+  width: 60px;
+  height: 40px;
+  cursor: pointer;
+}
 span.anticon.anticon-plus svg {
   height: 18px;
   width: 18px;
+}
+.anticon svg {
+  display: inline-block;
+  transform: rotate(90deg);
+  font-size: 22px;
+  font-weight: 900 !important;
+  font-family: 'Poppins';
 }
 .ce-chat-title-container > .ce-chat-subtitle-text{
   color: #e82421 !important;
