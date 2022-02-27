@@ -11,24 +11,26 @@ const Chats = () =>{
   const {user} = useAuth();
   const [loading, setLoading] = useState(true);
 
-  const handleLogout = async() =>{
-      await auth.signOut();
-      history.push('/');
-  }
-
+  
   const getFile = async(url) =>{
       const response = await fetch(url);
       const data = await response.blob();
       return new File([data], "userPhoto.jpg", {type : 'image/jpeg'});
   }
+  const handleLogout = async() =>{
+    await auth.signOut();
+    history.push('/');
+}
 
   useEffect(()  => {
+    
       if(!user){
           history.push('/');
           return;
       }
-      axios.get('https://api.chatengine.io/users/me/',{
+      axios.get('https://api.chatengine.io/users/me',{
           headers :{
+              'Content-type': 'application/json',
               "project-ID" : process.env.REACT_APP_CHAT_ENGINE_ID,
               "user-name" : user.email,
               "user-secret" : user.uid
@@ -48,7 +50,8 @@ const Chats = () =>{
 
               axios.post('https://api.chatengine.io/users/',
                           formdata,
-                          {headers : {"private-key" : process.env.REACT_APP_CHAT_ENGINE_KEY}}
+                          {headers : {"private-key" : process.env.REACT_APP_CHAT_ENGINE_KEY,
+                          'Content-type': 'application/json'}}
               )
               .then((res)=>{console.log(res.data);setLoading(false)})
               .catch((error)=>console.log(error))
