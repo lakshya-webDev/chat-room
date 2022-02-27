@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect,Fragment } from "react"
 import axios from 'axios';
 import Logo from './assets/images/chat-logo.png';
 import { useHistory , Link } from "react-router-dom";
@@ -61,34 +61,36 @@ const Chats = () =>{
 
   if(!user || loading) return <div/>;
   return (
-    <div className='chats-page'>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container">
-              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-              </button>
-              <Link to="#" className="navbar-brand text-white"><img src={Logo} alt="logo"/></Link>
-              <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
-                <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                  <li className="nav-item profile-avtaar dropdown">
-                  <Link to="#"className="nav-link dropbtn text-white"><img src={user.photoURL} className="avtaar-img" alt="profile-img"/> {user.displayName}</Link>
-                      <div className="dropdown-content">
-                        <Link to="#">{user.displayName}</Link>
-                        <Link to="#" className="profile-email">{user.email}</Link>
-                        <Link to="#" onClick={handleLogout}>Logout</Link>
-                      </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-      <ChatEngine 
-        height='calc(100vh - 66px)'
-        projectID= {projectID}
-        userName={user.email}
-        userSecret={user.uid}
-      />
-    </div>
+    <Fragment>
+      <nav className="navbar navbar-expand fixed-top" id="navbar_top">
+      <div className="container">
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <Link to="#" className="navbar-brand text-white"><img src={Logo} alt="logo"/></Link>
+        <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li className="nav-item profile-avtaar dropdown">
+            <Link to="#"className="nav-link dropbtn text-white"><img src={user.photoURL} className="avtaar-img" alt="profile-img"/> {user.displayName}</Link>
+                <div className="dropdown-content">
+                  <Link to="#">{user.displayName}</Link>
+                  <Link to="#" className="profile-email">{user.email}</Link>
+                  <Link to="#" onClick={handleLogout}>Logout</Link>
+                </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+      <div className='chats-page'> 
+        <ChatEngine 
+          height='calc(100vh - 66px)'
+          projectID= {projectID}
+          userName={user.email}
+          userSecret={user.uid}
+        />
+      </div>
+      </Fragment>
   );
 }
 export default Chats;
