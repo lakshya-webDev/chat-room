@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react"
 import axios from 'axios';
+import Logo from './assets/images/chat-logo.png';
 import { useHistory , Link } from "react-router-dom";
 import { ChatEngine } from 'react-chat-engine';
 import { useAuth } from "../contexts/AuthContext"
 import { auth } from "../firebase";
+import { projectID, projectKey } from "../data/data";
 
 const Chats = () =>{
-
+// console.log(projectID,projectKey);
   const history = useHistory(); 
   const {user} = useAuth();
   const [loading, setLoading] = useState(true);
@@ -30,7 +32,7 @@ const Chats = () =>{
       }
       axios.get('https://api.chatengine.io/users/me/',{
           headers :{
-              "project-ID" : process.env.REACT_APP_CHAT_ENGINE_ID,
+              "project-ID" : projectID,
               "user-name" : user.email,
               "user-secret" : user.uid
           }
@@ -49,7 +51,7 @@ const Chats = () =>{
 
               axios.post('https://api.chatengine.io/users/',
                           formdata,
-                          {headers : {"private-key" : process.env.REACT_APP_CHAT_ENGINE_KEY}}
+                          {headers : {"private-key" : projectKey}}
               )
               .then((res)=>{console.log(res.data);setLoading(false)})
               .catch((error)=>console.log(error))
@@ -65,7 +67,7 @@ const Chats = () =>{
               <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
-              <Link to="#" className="navbar-brand text-white">Chat Room</Link>
+              <Link to="#" className="navbar-brand text-white"><img src={Logo} alt="logo"/></Link>
               <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li className="nav-item profile-avtaar dropdown">
@@ -82,7 +84,7 @@ const Chats = () =>{
           </nav>
       <ChatEngine 
         height='calc(100vh - 66px)'
-        projectID= {process.env.REACT_APP_CHAT_ENGINE_ID}
+        projectID= {projectID}
         userName={user.email}
         userSecret={user.uid}
       />

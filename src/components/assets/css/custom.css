@@ -24,6 +24,14 @@ body, html {
 .ce-my-message-bubble,nav{
   background:  linear-gradient(45deg, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%) !important;
 }
+.navbar-brand img{
+  height: 120px;
+  top: 5px;
+  position: relative;
+}
+nav{
+  height: 90px;
+}
 .avtaar-img{
   height:34px;
   width: 34px;
@@ -83,6 +91,7 @@ span.anticon.anticon-plus svg {
   font-weight: 900 !important;
   font-family: 'Poppins';
 }
+
 .ce-chat-title-container > .ce-chat-subtitle-text{
   color: #e82421 !important;
 }
