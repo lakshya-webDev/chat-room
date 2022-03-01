@@ -19,8 +19,9 @@
   bottom: 30px;
 }
 .ce-chat-title-container {
-    background: inear-gradient(45deg,#963173, #fd6a32);
+    background: linear-gradient(45deg,#963173, #fd6a32);
 }
+.ce-chat-title-text{color:#fff;}
 .ql-bold,.ql-italic,.ql-underline,.ql-strike,.ql-code,.ql-link{
   display: none !important;
 }
