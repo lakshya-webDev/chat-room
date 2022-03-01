@@ -7,7 +7,27 @@
 	padding: 0px; 
 	box-sizing: border-box;
 }
-
+.chats-page {
+  position: absolute;
+  left: 0px;
+  width: 100vw;
+  height:calc(100vh - 90px)!important;
+  padding-top: 12vh;
+}
+.ql-bold,.ql-italic,.ql-underline,.ql-strike,.ql-code,.ql-link{
+  display: none !important;
+}
+div#toolbar .uploader {
+  position: absolute;
+  top: 15px;
+}
+div#toolbar{
+  border: none;
+  padding: 0px;
+}
+.ql-editor {
+  padding: 12px 30px !important;
+}
 body, html {
 	height: 100%;
 	font-family: Poppins-Regular, sans-serif;
@@ -29,6 +49,7 @@ body, html {
   top: 5px;
   position: relative;
 }
+
 nav{
   height: 90px;
 }

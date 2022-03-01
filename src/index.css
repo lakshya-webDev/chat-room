@@ -3,13 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 /* Chats Page */
 
-.chats-page {
-  position: absolute;
-  left: 0px;
-  width: 100vw;
-  height: 100vh;
-  padding-top: 14vh;
-}
+
 
 .logo-tab {
   position: absolute;
@@ -29,7 +23,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 0; /* Remove scrollbar space */
+  width: 2px; /* Remove scrollbar space */
   background: transparent; /* Optional: just make scrollbar invisible */
 }
 
