@@ -3,24 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 /* Chats Page */
 body, html {
-  height: 100%;
+  height: 100vh;
   margin: 0;
-}
-.logo-tab {
-  position: absolute;
-  left: 22px;
-  top: 12px;
-  font-size: 32px;
-  font-weight: 700;
-  color: white;
-}
-
-.logout-tab {
-  position: absolute;
-  top: 22px;
-  right: 22px;
-  color: white;
-  cursor: pointer;
 }
 .bgimg {
   background-image: url('./components/assets/images/background.jpg');
