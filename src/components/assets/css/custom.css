@@ -21,6 +21,18 @@
 .ce-chat-title-container {
     background: linear-gradient(45deg,#963173, #fd6a32);
 }
+.ce-quill-container {
+  background: #fff;
+}
+.ce-chat-title-container>.ce-chat-title-text {
+  /* background-color: #e82421; */
+  /* background-image: linear-gradient(45deg,#963173,#fd6a32); */
+  /* -webkit-background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  color: #fff !important;
+}
 .ce-chat-title-text{color:#fff;}
 .ql-bold,.ql-italic,.ql-underline,.ql-strike,.ql-code,.ql-link{
   display: none !important;
