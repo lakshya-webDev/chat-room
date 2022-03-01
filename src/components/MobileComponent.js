@@ -4,9 +4,9 @@ const MobileComponent = () => {
   return (
     <div className="bgimg">
         <div className="middle">
-            <h1>MOBILE VIEW COMING SOON</h1>
+            <h3 className='display-4'>MOBILE VIEW COMING SOON</h1>
             <hr/>
-            <p>View in Desktop Only</p>
+            <p className='display-5'>View in Desktop Only</p>
         </div>
 </div>
   )
