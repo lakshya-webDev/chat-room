@@ -17,10 +17,10 @@
 }
 .ce-quill-container {
   position: relative;
-  bottom: 30px;
+  bottom: 23px;
 }
 .ce-chat-title-container {
-    background: linear-gradient(45deg,#963173, #fd6a32);
+    background: linear-gradient(90deg, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%) !important;
 }
 .ce-quill-container {
   background: #fff;
@@ -34,9 +34,9 @@
   -moz-text-fill-color: unset !important;
   color: #fff !important;
 }
-.ce-active-chat-card{
+/* .ce-active-chat-card{
   background:linear-gradient(-90deg, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%) !important;
-}
+} */
 .ce-chat-title-container >.ce-chat-subtitle-message,.ce-chat-title-container >.ce-chat-subtitle-date{
 color: #fff !important;
 }
