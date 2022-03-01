@@ -2,9 +2,10 @@
 /* fonts Loaded */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 /* Chats Page */
-
-
-
+body, html {
+  height: 100%;
+  margin: 0;
+}
 .logo-tab {
   position: absolute;
   left: 22px;
