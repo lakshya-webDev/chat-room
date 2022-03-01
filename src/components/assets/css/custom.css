@@ -19,7 +19,8 @@
 }
 div#toolbar .uploader {
   position: absolute;
-  top: 15px;
+  top: 10px;
+  left: 2px;
 }
 div#toolbar{
   border: none;
