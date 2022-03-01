@@ -37,7 +37,9 @@
 .ce-chat-title-container >.ce-chat-subtitle-message,.ce-chat-title-container >.ce-chat-subtitle-date{
 color: #fff !important;
 }
-.ce-chat-title-text{color:#fff;}
+.ce-active-chat-card>.ce-chat-title-text {
+  color: #fff;
+}
 .ql-bold,.ql-italic,.ql-underline,.ql-strike,.ql-code,.ql-link{
   display: none !important;
 }
