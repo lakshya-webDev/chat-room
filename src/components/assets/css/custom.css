@@ -13,6 +13,7 @@
   width: 100vw;
   height:calc(100vh - 10px)!important;
   padding-top: 12vh;
+  overflow: hidden;
 }
 .ce-quill-container {
   position: relative;
