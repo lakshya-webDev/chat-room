@@ -19,9 +19,6 @@
   position: relative;
   bottom: 23px;
 }
-.ce-chat-title-container {
-    background: linear-gradient(90deg, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%) !important;
-}
 .ce-quill-container {
   background: #fff;
 }
@@ -32,7 +29,7 @@
   -webkit-text-fill-color: unset !important;
   -moz-background-clip: unset !important;
   -moz-text-fill-color: unset !important;
-  color: #fff !important;
+  color: rgba(253,29,29,1) !important;
 }
 /* .ce-active-chat-card{
   background:linear-gradient(-90deg, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%) !important;
