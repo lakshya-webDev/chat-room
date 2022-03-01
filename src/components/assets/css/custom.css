@@ -14,6 +14,14 @@
   height:calc(100vh - 90px)!important;
   padding-top: 12vh;
 }
+.ce-quill-container {
+  position: relative;
+  bottom: 30px;
+}
+
+.ce-chat-title-container {
+    background: inear-gradient(45deg,#963173, #fd6a32);
+}
 .ql-bold,.ql-italic,.ql-underline,.ql-strike,.ql-code,.ql-link{
   display: none !important;
 }
@@ -115,7 +123,7 @@ span.anticon.anticon-plus svg {
 }
 
 .ce-chat-title-container > .ce-chat-subtitle-text{
-  color: #e82421 !important;
+  color: #fff !important;
 }
 .ce-chat-title{
   background-color: #fff !important;
