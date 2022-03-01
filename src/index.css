@@ -13,7 +13,7 @@ body, html {
   background-size: cover;
   position: relative;
   color: white;
-  font-family: "Courier New", Courier, monospace;
+  font-family: Poppins;
   font-size: 25px;
 }
 .middle {
