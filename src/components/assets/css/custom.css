@@ -25,13 +25,13 @@
 .ce-quill-container {
   background: #fff;
 }
-.ce-chat-title-container>.ce-chat-title-text {
-  /* background-color: #e82421; */
-  /* background-image: linear-gradient(45deg,#963173,#fd6a32); */
-  /* -webkit-background-clip: text; */
-  /* -webkit-text-fill-color: transparent; */
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
+.ce-chat-title-container >.ce-chat-title-text {
+  background-color: unset !important;
+  background-image: unset !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  -moz-background-clip: unset !important;
+  -moz-text-fill-color: unset !important;
   color: #fff !important;
 }
 .ce-chat-title-text{color:#fff;}
